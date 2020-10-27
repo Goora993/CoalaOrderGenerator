@@ -4,15 +4,11 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
-import javafx.scene.layout.HBox;
 import pl.coalatransport.model.OrderType;
-import pl.coalatransport.util.ControlSupport;
-import pl.coalatransport.util.OrderEditor;
+import pl.coalatransport.util.OrderCreator;
 
 public class CarrierOrderFormController {
 
-    @FXML
-    private HBox contentHBox;
 
     @FXML
     private JFXTextField orderNumber;
@@ -86,39 +82,18 @@ public class CarrierOrderFormController {
     @FXML
     private JFXButton generateButton;
 
-    OrderEditor orderEditor = new OrderEditor(OrderType.CARRIER);
-    ControlSupport controlSupport = new ControlSupport();
 
-    private void generateNewOrder(String path) {
-        orderEditor.edit(orderNumber.getId(), orderNumber.getText());
-        orderEditor.edit(orderDate.getId(), orderDate.getText());
-        orderEditor.edit(lTime.getId(), lTime.getText());
-        orderEditor.edit(lName.getId(), lName.getText());
-        orderEditor.edit(lAddress.getId(), lAddress.getText());
-        orderEditor.edit(lAdditionalInfo.getId(), lAdditionalInfo.getText());
-        orderEditor.edit(uTime.getId(), uTime.getText());
-        orderEditor.edit(uName.getId(), uName.getText());
-        orderEditor.edit(uAddress.getId(), uAddress.getText());
-        orderEditor.edit(uAdditionalInfo.getId(), uAdditionalInfo.getText());
-        orderEditor.edit(cargo.getId(), cargo.getText());
-        orderEditor.edit(vPlates.getId(), vPlates.getText());
-        orderEditor.edit(vType.getId(), vType.getText());
-        orderEditor.edit(dName.getId(), dName.getText());
-        orderEditor.edit(cName.getId(), cName.getText());
-        orderEditor.edit(cAddress.getId(), cAddress.getText());
-        orderEditor.edit(cContactPerson.getId(), cContactPerson.getText());
-        orderEditor.edit(pPrice.getId(), pPrice.getText());
-        orderEditor.edit(pTerm.getId(), pTerm.getText());
-        orderEditor.edit(pCurrency.getId(), pCurrency.getText());
-        orderEditor.edit(person.getId(), person.getText());
-        orderEditor.edit(pNumber.getId(), pNumber.getText());
-        orderEditor.edit(pMail.getId(), pMail.getText());
-        orderEditor.saveDoc(path);
+    OrderCreator orderCreator = new OrderCreator(OrderType.CARRIER);
+
+    private void generateOrder(){
+        orderCreator.generateOrder(cargo, orderNumber, orderDate, lTime, lName, lAddress, lAdditionalInfo,
+                uTime, uName, uAddress, uAdditionalInfo, vPlates, vType, dName, cAddress, cName, cContactPerson,
+                pPrice, pCurrency, pTerm, person, pNumber, pMail);
     }
 
     public void initialize(){
         generateButton.setOnAction(actionEvent -> {
-            generateNewOrder(controlSupport.getSavePath());
+            generateOrder();
         });
     }
 

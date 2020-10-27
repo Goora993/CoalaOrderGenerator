@@ -1,6 +1,6 @@
 package pl.coalatransport.model;
 
-public class ClientOrder {
+public class ClientOrder extends Order {
 
     private String orderNumber;
     private String orderDate;
@@ -30,6 +30,8 @@ public class ClientOrder {
     private String employeePhoneNumber;
     private String employeeEmail;
 
+    public ClientOrder() {
+    }
 
     String outputFileName = "Zlecenie_klient.docx";
 
