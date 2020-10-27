@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.coalatransport.controller.CarrierOrderFormController">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Text fill="#4d4d4d" stroke="#1978d1" strokeType="OUTSIDE" strokeWidth="0.0" text="Formularz zlecenia dla przewoźnika" textAlignment="CENTER" wrappingWidth="600.0">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Text>
+                <ScrollPane hbarPolicy="NEVER">
+                    <content>
+                        <HBox fx:id="contentHBox" prefWidth="590.0">
+                            <children>
+                                <VBox prefWidth="195.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <JFXTextField id="jfxbutton" editable="false" layoutX="10.0" layoutY="80.0" text="Numer i data wystawienia zlecenia">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="orderNumber" labelFloat="true" promptText="Numer zlecenia" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="orderDate" labelFloat="true" promptText="Data wystawienia" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField id="jfxbutton" editable="false" text="Załadunek">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="lTime" labelFloat="true" promptText="Data i czas" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="lName" labelFloat="true" promptText="Nazwa " unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="lAddress" labelFloat="true" promptText="Adres " unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="lAdditionalInfo" labelFloat="true" promptText="Dodatkowe informacje" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField id="jfxbutton" editable="false" text="Rozładunek">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="uTime" labelFloat="true" promptText="Data i czas" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="uName" labelFloat="true" promptText="Nazwa" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="uAddress" labelFloat="true" promptText="Adres" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="uAdditionalInfo" labelFloat="true" promptText="Dodatkowe informacje" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextArea fx:id="cargo" prefHeight="100.0" prefWidth="300.0" promptText="Towar oraz instrukcje zleceniodawcy" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextArea>
+                                        <JFXTextField id="jfxbutton" editable="false" text="Pojazd i kierowca">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="vPlates" labelFloat="true" promptText="Numery rejestracyjne" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="vType" labelFloat="true" promptText="Środek transportu" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="dName" labelFloat="true" promptText="Kierowca" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets bottom="15.0" top="5.0" />
+                                    </HBox.margin>
+                                </VBox>
+                                <VBox prefWidth="195.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <JFXTextField editable="false" text="Dane przewoźnika">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="cName" labelFloat="true" promptText="Nazwa firmy" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="cAddress" labelFloat="true" promptText="Adres firmy" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="cContactPerson" labelFloat="true" promptText="Osoba kontaktowa" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField editable="false" text="Warunki płatności">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="pPrice" labelFloat="true" promptText="Cena usługi" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="pTerm" labelFloat="true" promptText="Termin płatności" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="pCurrency" labelFloat="true" promptText="Waluta fakturowania" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField editable="false" layoutX="10.0" layoutY="10.0" text="Osoba wystawiająca">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="person" labelFloat="true" layoutX="10.0" layoutY="87.0" promptText="Imię i nazwisko" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="pNumber" labelFloat="true" layoutX="10.0" layoutY="138.0" promptText="Numer telefonu" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                        <JFXTextField fx:id="pMail" labelFloat="true" layoutX="10.0" layoutY="164.0" promptText="Adres email" unFocusColor="#747474">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                        </JFXTextField>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets bottom="15.0" top="5.0" />
+                                    </HBox.margin>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </content>
+                </ScrollPane>
+                <JFXButton fx:id="generateButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" stylesheets="@../css/clientOrderFormCss.css" text="Generuj">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                </JFXButton>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
