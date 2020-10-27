@@ -4,7 +4,9 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 import pl.coalatransport.model.OrderType;
+import pl.coalatransport.util.StageCreator;
 import pl.coalatransport.util.OrderCreator;
 
 public class CarrierOrderFormController {
@@ -82,8 +84,25 @@ public class CarrierOrderFormController {
     @FXML
     private JFXButton generateButton;
 
+    private final String WINDOW_URL = "/fxml/carrierOrderForm.fxml";
+    private final String ICON_URL = "koala.png";
+    private final String WINDOW_TITLE = "Zlecenie dla przewoźnika";
+    private final int WINDOW_WIDTH = 600;
+    private final int WINDOW_HEIGHT = 750;
+    private final boolean IS_RESIZEABLE = false;
+
 
     OrderCreator orderCreator = new OrderCreator(OrderType.CARRIER);
+    StageCreator stageCreator = new StageCreator();
+
+    private static Stage stage;
+
+    public Stage getStage() {
+        if(stage==null)
+            stage = stageCreator.createNewStage(WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE);
+
+        return stage;
+    }
 
     private void generateOrder(){
         orderCreator.generateOrder(cargo, orderNumber, orderDate, lTime, lName, lAddress, lAdditionalInfo,

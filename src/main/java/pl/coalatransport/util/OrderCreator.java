@@ -94,7 +94,7 @@ public class OrderCreator {
         try {
             document.write(new FileOutputStream(savePath));
             isSaved = true;
-            System.out.println("Zapisaono");
+            System.out.println("Wygenerowano na podstawie " + orderType.getFileName());
         } catch (IOException e) {
             e.printStackTrace();
         }

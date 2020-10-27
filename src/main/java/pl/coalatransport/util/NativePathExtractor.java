@@ -6,13 +6,13 @@ import com.sun.jna.platform.win32.*;
 public class NativePathExtractor {
 
     public static String extractDesktopPath(){
-        char[] pszPath = new char[WinDef.MAX_PATH];
+        char[] path = new char[WinDef.MAX_PATH];
         Shell32.INSTANCE.SHGetFolderPath(null,
                 ShlObj.CSIDL_DESKTOPDIRECTORY, null, ShlObj.SHGFP_TYPE_CURRENT,
-                pszPath);
-        System.out.println(Native.toString(pszPath));
+                path);
+        System.out.println(Native.toString(path));
 
-        return Native.toString(pszPath);
+        return Native.toString(path);
 
     }
 
