@@ -43,7 +43,7 @@ public class OrderCreator {
         for (int i = 0; i < argsAmount; i++) {
             edit(textFields[i].getId(), textFields[i].getText());
         }
-        saveDoc(getSavePath());
+        saveDoc();
 
         switch(orderType){
             case CLIENT:
@@ -89,22 +89,14 @@ public class OrderCreator {
     }
 
 
-    private boolean saveDoc(String savePath){
-        boolean isSaved = false;
-        try {
-            document.write(new FileOutputStream(savePath));
-            isSaved = true;
-            System.out.println("Wygenerowano na podstawie " + orderType.getFileName());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return isSaved;
-    }
 
     private String getSavePath(){
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(NativePathExtractor.extractDesktopPath()));
+        File initialDirectory = new File(NativePathExtractor.extractDesktopPath());
+
+        if(initialDirectory!=null)  //removes NPE when closing file chooser without saving file
+            fileChooser.setInitialDirectory(initialDirectory);
+
         fileChooser.setTitle("Zapisz plik");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("docx", "*.docx"),
@@ -112,6 +104,19 @@ public class OrderCreator {
         );
         File file = fileChooser.showSaveDialog(new Stage());
         return file.getPath();
+    }
+
+    private boolean saveDoc(){
+        boolean isSaved = false;
+        try {
+            document.write(new FileOutputStream(getSavePath()));
+            isSaved = true;
+            System.out.println("Wygenerowano na podstawie " + orderType.getFileName());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return isSaved;
     }
 
 

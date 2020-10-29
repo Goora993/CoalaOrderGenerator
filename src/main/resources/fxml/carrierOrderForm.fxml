@@ -20,7 +20,7 @@
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Text>
-                <ScrollPane hbarPolicy="NEVER">
+                <ScrollPane fx:id="sp" hbarPolicy="NEVER">
                     <content>
                         <HBox prefWidth="590.0">
                             <children>

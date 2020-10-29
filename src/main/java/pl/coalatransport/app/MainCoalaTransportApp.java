@@ -7,6 +7,7 @@ import pl.coalatransport.util.StageCreator;
 
 public class MainCoalaTransportApp extends Application {
 
+    private static final String APP_VERSION = "0.1.0";
     private final String WINDOW_URL = "/fxml/mainContainer.fxml";
     private final String ICON_URL = "koala.png";
     private final String WINDOW_TITLE = "Coalowy generator zleceń";
@@ -23,7 +24,4 @@ public class MainCoalaTransportApp extends Application {
     public static void main(String[] args){
         launch(args);
     }
-
-
-
 }

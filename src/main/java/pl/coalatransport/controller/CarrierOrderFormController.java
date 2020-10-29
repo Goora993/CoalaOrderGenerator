@@ -3,7 +3,10 @@ package pl.coalatransport.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import pl.coalatransport.model.OrderType;
 import pl.coalatransport.util.StageCreator;
@@ -11,6 +14,8 @@ import pl.coalatransport.util.OrderCreator;
 
 public class CarrierOrderFormController {
 
+    @FXML
+    private ScrollPane sp;
 
     @FXML
     private JFXTextField orderNumber;
@@ -111,8 +116,15 @@ public class CarrierOrderFormController {
     }
 
 
+    public void sharpTextArea(){
+        sp = (ScrollPane)cargo.getChildrenUnmodifiable().get(0);
+        for (Node n : sp.getChildrenUnmodifiable()) {
+            n.setCache(false);
+        }
+    }
 
     public void initialize(){
+        Platform.runLater(this::sharpTextArea);
         generateButton.setOnAction(actionEvent -> {
             generateOrder();
             stage.close();
