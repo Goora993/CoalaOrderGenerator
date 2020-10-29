@@ -14,7 +14,9 @@ public class MainContainerController {
 
 
     public void initialize(){
-        clientButton.setOnAction(actionEvent -> new ClientOrderFormController().getStage());
+        clientButton.setOnAction(actionEvent -> {
+            System.out.println(new ClientOrderFormController().getStage());
+        });
         carrierButton.setOnAction(actionEvent -> new CarrierOrderFormController().getStage());
     }
 }

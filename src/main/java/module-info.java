@@ -1,4 +1,4 @@
-module CoalaTransportApp {
+open module pl.coalatransport {
     requires javafx.base;
     requires javafx.graphics;
     requires javafx.controls;
@@ -12,8 +12,5 @@ module CoalaTransportApp {
 
     exports pl.coalatransport.controller;
     exports pl.coalatransport.app;
-
-    opens pl.coalatransport.controller;
-    opens pl.coalatransport.app;
 
 }

@@ -109,7 +109,7 @@ public class ClientOrderFormController {
     }
 
     public Stage getStage() {
-        if(stage==null)
+        //if(stage==null)
             stage = stageCreator.createNewStage(WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE);
 
         return stage;

@@ -98,7 +98,7 @@ public class CarrierOrderFormController {
     private static Stage stage;
 
     public Stage getStage() {
-        if(stage==null)
+        //if(stage==null)
             stage = stageCreator.createNewStage(WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE);
 
         return stage;
@@ -110,9 +110,12 @@ public class CarrierOrderFormController {
                 pPrice, pCurrency, pTerm, person, pNumber, pMail);
     }
 
+
+
     public void initialize(){
         generateButton.setOnAction(actionEvent -> {
             generateOrder();
+            stage.close();
         });
     }
 
