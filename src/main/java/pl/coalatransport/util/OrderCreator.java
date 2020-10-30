@@ -2,6 +2,7 @@ package pl.coalatransport.util;
 
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.scene.control.DatePicker;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -37,9 +38,10 @@ public class OrderCreator {
     }
 
 
-    public Order generateOrder(JFXTextArea textArea, JFXTextField... textFields){
+    public Order generateOrder(JFXTextArea textArea, DatePicker datePicker, JFXTextField... textFields){
         int argsAmount = textFields.length;
         edit(textArea.getId(), textArea.getText());
+        edit(datePicker.getId(), datePicker.getValue().toString());
         for (int i = 0; i < argsAmount; i++) {
             edit(textFields[i].getId(), textFields[i].getText());
         }

@@ -6,11 +6,13 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import pl.coalatransport.model.OrderType;
 import pl.coalatransport.util.StageCreator;
 import pl.coalatransport.util.OrderCreator;
+import pl.coalatransport.util.TextFieldFormatter;
 
 public class CarrierOrderFormController {
 
@@ -21,7 +23,7 @@ public class CarrierOrderFormController {
     private JFXTextField orderNumber;
 
     @FXML
-    private JFXTextField orderDate;
+    private DatePicker orderDate;
 
     @FXML
     private JFXTextField lTime;
@@ -99,6 +101,7 @@ public class CarrierOrderFormController {
 
     OrderCreator orderCreator = new OrderCreator(OrderType.CARRIER);
     StageCreator stageCreator = new StageCreator();
+    TextFieldFormatter textFieldFormatter = new TextFieldFormatter();
 
     private static Stage stage;
 
@@ -110,7 +113,7 @@ public class CarrierOrderFormController {
     }
 
     private void generateOrder(){
-        orderCreator.generateOrder(cargo, orderNumber, orderDate, lTime, lName, lAddress, lAdditionalInfo,
+        orderCreator.generateOrder(cargo, orderDate, orderNumber, lTime, lName, lAddress, lAdditionalInfo,
                 uTime, uName, uAddress, uAdditionalInfo, vPlates, vType, dName, cAddress, cName, cContactPerson,
                 pPrice, pCurrency, pTerm, person, pNumber, pMail);
     }
@@ -125,6 +128,7 @@ public class CarrierOrderFormController {
 
     public void initialize(){
         Platform.runLater(this::sharpTextArea);
+        textFieldFormatter.formatOrderNumberTextField(orderNumber);
         generateButton.setOnAction(actionEvent -> {
             generateOrder();
             stage.close();

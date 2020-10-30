@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import pl.coalatransport.model.OrderType;
@@ -22,7 +23,7 @@ public class ClientOrderFormController {
     private JFXTextField orderNumber;
 
     @FXML
-    private JFXTextField orderDate;
+    private DatePicker orderDate;
 
     @FXML
     private JFXTextField lTime;
@@ -109,7 +110,7 @@ public class ClientOrderFormController {
     private static Stage stage;
 
     private void generateOrder(){
-        orderCreator.generateOrder(cargo, orderNumber, orderDate, lTime, lName, lAddress, lAdditionalInfo,
+        orderCreator.generateOrder(cargo, orderDate, orderNumber, lTime, lName, lAddress, lAdditionalInfo,
                 uTime, uName, uAddress, uAdditionalInfo, vPlates, vType, dName, cAddress, cName, cNip, cContactPerson,
                 cPostalAddress, pPrice, pCurrency, pTerm, person, pNumber, pMail);
     }

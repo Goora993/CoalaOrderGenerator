@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -35,17 +36,17 @@
                                     <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="orderNumber" labelFloat="true" promptText="Numer zlecenia" unFocusColor="#747474">
+                              <DatePicker fx:id="orderDate" focusTraversable="false" prefHeight="30.0" prefWidth="200.0" promptText="Data wystawienia zlecenia" stylesheets="@../css/carrierOrderFormCss.css">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </DatePicker>
+                              <JFXTextField fx:id="orderNumber" focusTraversable="false" labelFloat="true" promptText="Numer zlecenia" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="orderDate" labelFloat="true" promptText="Data wystawienia" unFocusColor="#747474">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </JFXTextField>
-                              <JFXTextField id="jfxbutton" editable="false" text="Załadunek">
+                              <JFXTextField id="jfxbutton" editable="false" focusTraversable="false" text="Załadunek">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -53,27 +54,27 @@
                                     <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="lTime" labelFloat="true" promptText="Data i czas" unFocusColor="#747474">
+                              <JFXTextField fx:id="lTime" focusTraversable="false" labelFloat="true" promptText="Data i czas" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="lName" labelFloat="true" promptText="Nazwa " unFocusColor="#747474">
+                              <JFXTextField fx:id="lName" focusTraversable="false" labelFloat="true" promptText="Nazwa " unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="lAddress" labelFloat="true" promptText="Adres " unFocusColor="#747474">
+                              <JFXTextField fx:id="lAddress" focusTraversable="false" labelFloat="true" promptText="Adres " unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="lAdditionalInfo" labelFloat="true" promptText="Dodatkowe informacje" unFocusColor="#747474">
+                              <JFXTextField fx:id="lAdditionalInfo" focusTraversable="false" labelFloat="true" promptText="Dodatkowe informacje" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField id="jfxbutton" editable="false" text="Rozładunek">
+                              <JFXTextField id="jfxbutton" editable="false" focusTraversable="false" text="Rozładunek">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -81,32 +82,32 @@
                                     <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="uTime" labelFloat="true" promptText="Data i czas" unFocusColor="#747474">
+                              <JFXTextField fx:id="uTime" focusTraversable="false" labelFloat="true" promptText="Data i czas" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="uName" labelFloat="true" promptText="Nazwa" unFocusColor="#747474">
+                              <JFXTextField fx:id="uName" focusTraversable="false" labelFloat="true" promptText="Nazwa" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="uAddress" labelFloat="true" promptText="Adres" unFocusColor="#747474">
+                              <JFXTextField fx:id="uAddress" focusTraversable="false" labelFloat="true" promptText="Adres" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="uAdditionalInfo" labelFloat="true" promptText="Dodatkowe informacje" unFocusColor="#747474">
+                              <JFXTextField fx:id="uAdditionalInfo" focusTraversable="false" labelFloat="true" promptText="Dodatkowe informacje" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextArea fx:id="cargo" accessibleRole="TEXT_FIELD" labelFloat="true" prefHeight="100.0" prefWidth="300.0" promptText="Towar oraz instrukcje zleceniodawcy" unFocusColor="#747474">
+                              <JFXTextArea fx:id="cargo" accessibleRole="TEXT_FIELD" focusTraversable="false" labelFloat="true" prefHeight="100.0" prefWidth="300.0" promptText="Towar oraz instrukcje zleceniodawcy" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextArea>
-                              <JFXTextField id="jfxbutton" editable="false" text="Pojazd i kierowca">
+                              <JFXTextField id="jfxbutton" editable="false" focusTraversable="false" text="Pojazd i kierowca">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -114,17 +115,17 @@
                                     <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="vPlates" labelFloat="true" promptText="Numery rejestracyjne" unFocusColor="#747474">
+                              <JFXTextField fx:id="vPlates" focusTraversable="false" labelFloat="true" promptText="Numery rejestracyjne" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="vType" labelFloat="true" promptText="Środek transportu" unFocusColor="#747474">
+                              <JFXTextField fx:id="vType" focusTraversable="false" labelFloat="true" promptText="Środek transportu" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="dName" labelFloat="true" promptText="Kierowca" unFocusColor="#747474">
+                              <JFXTextField fx:id="dName" focusTraversable="false" labelFloat="true" promptText="Kierowca" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
@@ -139,7 +140,7 @@
                         </VBox>
                         <VBox prefWidth="195.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <JFXTextField editable="false" text="Dane klienta">
+                              <JFXTextField editable="false" focusTraversable="false" text="Dane klienta">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -147,32 +148,32 @@
                                     <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="cName" labelFloat="true" promptText="Nazwa klienta" unFocusColor="#747474">
+                              <JFXTextField fx:id="cName" focusTraversable="false" labelFloat="true" promptText="Nazwa klienta" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="cAddress" labelFloat="true" promptText="Adres klienta" unFocusColor="#747474">
+                              <JFXTextField fx:id="cAddress" focusTraversable="false" labelFloat="true" promptText="Adres klienta" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="cNip" labelFloat="true" promptText="Nip klienta" unFocusColor="#747474">
+                              <JFXTextField fx:id="cNip" focusTraversable="false" labelFloat="true" promptText="Nip klienta" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="cPostalAddress" labelFloat="true" promptText="Adres korespondencyjny klienta" unFocusColor="#747474">
+                              <JFXTextField fx:id="cPostalAddress" focusTraversable="false" labelFloat="true" promptText="Adres korespondencyjny klienta" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="cContactPerson" labelFloat="true" promptText="Osoba kontaktowa" unFocusColor="#747474">
+                              <JFXTextField fx:id="cContactPerson" focusTraversable="false" labelFloat="true" promptText="Osoba kontaktowa" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField editable="false" text="Warunki płatności">
+                              <JFXTextField editable="false" focusTraversable="false" text="Warunki płatności">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -180,22 +181,22 @@
                                     <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="pPrice" labelFloat="true" promptText="Cena usługi" unFocusColor="#747474">
+                              <JFXTextField fx:id="pPrice" focusTraversable="false" labelFloat="true" promptText="Cena usługi" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="pTerm" labelFloat="true" promptText="Termin płatności" unFocusColor="#747474">
+                              <JFXTextField fx:id="pTerm" focusTraversable="false" labelFloat="true" promptText="Termin płatności" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="pCurrency" labelFloat="true" promptText="Waluta fakturowania" unFocusColor="#747474">
+                              <JFXTextField fx:id="pCurrency" focusTraversable="false" labelFloat="true" promptText="Waluta fakturowania" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField editable="false" layoutX="10.0" layoutY="10.0" text="Osoba wystawiająca">
+                              <JFXTextField editable="false" focusTraversable="false" layoutX="10.0" layoutY="10.0" text="Osoba wystawiająca">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -203,17 +204,17 @@
                                     <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="person" labelFloat="true" layoutX="10.0" layoutY="87.0" promptText="Imię i nazwisko" unFocusColor="#747474">
+                              <JFXTextField fx:id="person" focusTraversable="false" labelFloat="true" layoutX="10.0" layoutY="87.0" promptText="Imię i nazwisko" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="pNumber" labelFloat="true" layoutX="10.0" layoutY="138.0" promptText="Numer telefonu" unFocusColor="#747474">
+                              <JFXTextField fx:id="pNumber" focusTraversable="false" labelFloat="true" layoutX="10.0" layoutY="138.0" promptText="Numer telefonu" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </JFXTextField>
-                              <JFXTextField fx:id="pMail" labelFloat="true" layoutX="10.0" layoutY="164.0" promptText="Adres email" unFocusColor="#747474">
+                              <JFXTextField fx:id="pMail" focusTraversable="false" labelFloat="true" layoutX="10.0" layoutY="164.0" promptText="Adres email" unFocusColor="#747474">
                                  <VBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
