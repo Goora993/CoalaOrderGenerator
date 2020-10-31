@@ -107,7 +107,7 @@ public class ClientOrderFormController {
     OrderCreator orderCreator = new OrderCreator(OrderType.CLIENT);
     StageCreator stageCreator = new StageCreator();
 
-    private static Stage stage;
+    private Stage stage;
 
     private void generateOrder(){
         orderCreator.generateOrder(cargo, orderDate, orderNumber, lTime, lName, lAddress, lAdditionalInfo,

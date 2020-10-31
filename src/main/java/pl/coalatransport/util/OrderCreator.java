@@ -16,6 +16,7 @@ import pl.coalatransport.model.OrderType;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class OrderCreator {
@@ -41,7 +42,8 @@ public class OrderCreator {
     public Order generateOrder(JFXTextArea textArea, DatePicker datePicker, JFXTextField... textFields){
         int argsAmount = textFields.length;
         edit(textArea.getId(), textArea.getText());
-        edit(datePicker.getId(), datePicker.getValue().toString());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        edit(datePicker.getId(), datePicker.getValue().format(formatter));
         for (int i = 0; i < argsAmount; i++) {
             edit(textFields[i].getId(), textFields[i].getText());
         }

@@ -103,7 +103,8 @@ public class CarrierOrderFormController {
     StageCreator stageCreator = new StageCreator();
     TextFieldFormatter textFieldFormatter = new TextFieldFormatter();
 
-    private static Stage stage;
+
+    private Stage stage;
 
     public Stage getStage() {
         //if(stage==null)
@@ -111,6 +112,7 @@ public class CarrierOrderFormController {
 
         return stage;
     }
+
 
     private void generateOrder(){
         orderCreator.generateOrder(cargo, orderDate, orderNumber, lTime, lName, lAddress, lAdditionalInfo,
