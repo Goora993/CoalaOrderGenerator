@@ -104,14 +104,7 @@ public class CarrierOrderFormController {
     TextFieldFormatter textFieldFormatter = new TextFieldFormatter();
 
 
-    private Stage stage;
-
-    public Stage getStage() {
-        //if(stage==null)
-            stage = stageCreator.createNewStage(WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE);
-
-        return stage;
-    }
+    private static Stage stage;
 
 
     private void generateOrder(){
@@ -121,15 +114,48 @@ public class CarrierOrderFormController {
     }
 
 
-    public void sharpTextArea(){
+    private void sharpTextArea(){
         sp = (ScrollPane)cargo.getChildrenUnmodifiable().get(0);
         for (Node n : sp.getChildrenUnmodifiable()) {
             n.setCache(false);
         }
     }
 
+
+    private void closeStage(){
+        stage.setOnCloseRequest(windowEvent -> {
+            stage.close();
+            setStage(null);
+        });
+    }
+
+
+    public Stage getStage() {
+        if(stage==null)
+            {
+            stage = stageCreator.createNewStage(WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE);
+            }
+
+        return stage;
+    }
+
+
+    public void setStage(Stage stage){
+        this.stage = stage;
+    }
+
+
+    public boolean stageStatus(){
+        if(stage==null)
+            return false;
+        else
+            return true;
+    }
+
+
     public void initialize(){
         Platform.runLater(this::sharpTextArea);
+        Platform.runLater(this::closeStage);
         textFieldFormatter.formatOrderNumberTextField(orderNumber);
         generateButton.setOnAction(actionEvent -> {
             generateOrder();

@@ -21,6 +21,7 @@ public class MainCoalaTransportApp extends Application {
     public void start(Stage stage) {
         MainContainerController.setMainContainerStage(new StageCreator().createNewStage
                 (WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE));
+//        MainContainerController.getMainContainerStage().setOnCloseRequest(windowEvent -> System.out.println("Window is closing"));
     }
 
     public static void main(String[] args){

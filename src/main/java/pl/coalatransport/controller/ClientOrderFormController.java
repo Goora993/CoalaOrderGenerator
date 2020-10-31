@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import pl.coalatransport.model.OrderType;
 import pl.coalatransport.util.StageCreator;
 import pl.coalatransport.util.OrderCreator;
+import pl.coalatransport.util.TextFieldFormatter;
 
 
 public class ClientOrderFormController {
@@ -106,8 +107,9 @@ public class ClientOrderFormController {
 
     OrderCreator orderCreator = new OrderCreator(OrderType.CLIENT);
     StageCreator stageCreator = new StageCreator();
+    TextFieldFormatter textFieldFormatter = new TextFieldFormatter();
 
-    private Stage stage;
+    private static Stage stage;
 
     private void generateOrder(){
         orderCreator.generateOrder(cargo, orderDate, orderNumber, lTime, lName, lAddress, lAdditionalInfo,
@@ -115,26 +117,52 @@ public class ClientOrderFormController {
                 cPostalAddress, pPrice, pCurrency, pTerm, person, pNumber, pMail);
     }
 
-    public Stage getStage() {
-        //if(stage==null)
-            stage = stageCreator.createNewStage(WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE);
 
-        return stage;
-    }
-
-    public void sharpTextArea(){
+    private void sharpTextArea(){
         sp = (ScrollPane)cargo.getChildrenUnmodifiable().get(0);
         for (Node n : sp.getChildrenUnmodifiable()) {
             n.setCache(false);
         }
     }
 
+
+    private void closeStage(){
+        stage.setOnCloseRequest(windowEvent -> {
+            stage.close();
+            setStage(null);
+        });
+    }
+
+
+    public Stage getStage() {
+        if(stage==null){
+            stage = stageCreator.createNewStage(WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE);
+        }
+
+        return stage;
+    }
+
+
+    public void setStage(Stage stage){
+        this.stage = stage;
+    }
+
+
+    public boolean stageStatus(){
+        if(stage==null)
+            return false;
+        else
+            return true;
+    }
+
     public void initialize(){
         Platform.runLater(this::sharpTextArea);
-        generateButton.setOnAction(actionEvent ->{
+        Platform.runLater(this::closeStage);
+        textFieldFormatter.formatOrderNumberTextField(orderNumber);
+        generateButton.setOnAction(actionEvent -> {
             generateOrder();
             stage.close();
-        } );
+        });
     }
 
 

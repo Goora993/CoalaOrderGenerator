@@ -1,6 +1,7 @@
 package pl.coalatransport.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
@@ -16,8 +17,8 @@ public class MainContainerController {
     private JFXButton clientButton;
 
     private static Stage mainContainerStage;
-    private Stage carrierOrderFormStage;
-    private Stage clientOrderFormStage;
+    CarrierOrderFormController carrierOrderFormController = new CarrierOrderFormController();
+    ClientOrderFormController clientOrderFormController = new ClientOrderFormController();
 
     public static Stage getMainContainerStage() {
         return mainContainerStage;
@@ -27,10 +28,24 @@ public class MainContainerController {
         MainContainerController.mainContainerStage = mainContainerStage;
     }
 
+    private void closeAllWindows(){
+        getMainContainerStage().setOnCloseRequest(windowEvent -> {
 
+            if(carrierOrderFormController.stageStatus()){
+                carrierOrderFormController.getStage().close();
+            }
+
+            if(clientOrderFormController.stageStatus()){
+                clientOrderFormController.getStage().close();
+            }
+
+        });
+    }
 
     public void initialize() {
-        clientButton.setOnAction(actionEvent -> clientOrderFormStage = new ClientOrderFormController().getStage());
-        carrierButton.setOnAction(actionEvent -> carrierOrderFormStage = new CarrierOrderFormController().getStage());
+        System.out.println(carrierOrderFormController.stageStatus());
+        clientButton.setOnAction(actionEvent -> clientOrderFormController.getStage());
+        carrierButton.setOnAction(actionEvent -> carrierOrderFormController.getStage());
+        Platform.runLater(this::closeAllWindows);
     }
 }
