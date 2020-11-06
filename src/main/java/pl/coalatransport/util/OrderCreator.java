@@ -2,9 +2,12 @@ package pl.coalatransport.util;
 
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
 import javafx.scene.control.DatePicker;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.xwpf.usermodel.*;
@@ -13,11 +16,10 @@ import pl.coalatransport.model.ClientOrder;
 import pl.coalatransport.model.Order;
 import pl.coalatransport.model.OrderType;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+
 
 public class OrderCreator {
     static XWPFDocument document;
@@ -29,6 +31,8 @@ public class OrderCreator {
                 switch (orderType){
                     case CLIENT:
                     case CARRIER:
+//                        document = new XWPFDocument(new FileInputStream(orderType.getFileName()));
+                        // asses if above is more efficient than the one below
                         document = new XWPFDocument(OPCPackage.open(orderType.getFileName()));
                         break;
                 }
@@ -47,7 +51,8 @@ public class OrderCreator {
         for (int i = 0; i < argsAmount; i++) {
             edit(textFields[i].getId(), textFields[i].getText());
         }
-        saveDoc();
+
+        saveFile();
 
         switch(orderType){
             case CLIENT:
@@ -68,7 +73,7 @@ public class OrderCreator {
                 for (XWPFRun r : runs) {
                     String text = r.getText(0);
                     if (text != null && text.contains(key)) {
-                        text = text.replace(key, value);//your content
+                        text = text.replace(key, value); //content
                         r.setText(text, 0);
                     }
                 }
@@ -94,7 +99,7 @@ public class OrderCreator {
 
 
 
-    private String getSavePath(){
+    private void saveFile(){
         FileChooser fileChooser = new FileChooser();
         File initialDirectory = new File(NativePathExtractor.extractDesktopPath());
 
@@ -104,16 +109,29 @@ public class OrderCreator {
         fileChooser.setTitle("Zapisz plik");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("docx", "*.docx"),
-                new FileChooser.ExtensionFilter("pdf", "*.pdf") //zaimplementowac konwerter docx->pdf
+                new FileChooser.ExtensionFilter("pdf", "*.pdf")
         );
         File file = fileChooser.showSaveDialog(new Stage());
-        return file.getPath();
+
+        String extensionType = fileChooser.getSelectedExtensionFilter().getDescription();
+
+        switch (extensionType){
+            case "docx":
+                saveDocx(file.getPath());
+                break;
+            case "pdf":
+                savePdf(file.getPath());
+                break;
+               //add default with exception
+        }
+
     }
 
-    private boolean saveDoc(){
+    //SAVE DOCX METHOD
+    private boolean saveDocx(String savePath){
         boolean isSaved = false;
-        try {
-            document.write(new FileOutputStream(getSavePath()));
+        try(FileOutputStream fos = new FileOutputStream(savePath)) {
+            document.write(fos);
             isSaved = true;
             System.out.println("Wygenerowano na podstawie " + orderType.getFileName());
         } catch (IOException e) {
@@ -123,5 +141,20 @@ public class OrderCreator {
         return isSaved;
     }
 
+    //SAVE PDF METHOD
+    private boolean savePdf(String savePath) {
+
+        boolean isSaved = false;
+
+        try(FileOutputStream fos = new FileOutputStream(new File(savePath))) {
+            PdfOptions pdfOptions = PdfOptions.create();
+            PdfConverter.getInstance().convert(document, fos, pdfOptions);
+            isSaved = true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return isSaved;
+    }
 
 }

@@ -162,6 +162,7 @@ public class ClientOrderFormController {
         generateButton.setOnAction(actionEvent -> {
             generateOrder();
             stage.close();
+            setStage(null);
         });
     }
 

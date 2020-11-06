@@ -14,15 +14,26 @@
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
         <maven-plugin.version>3.8.0</maven-plugin.version>
-        <javafx.version>16-ea+3</javafx.version>
+        <javafx.version>14.0.2.1</javafx.version>
         <jna.version>5.6.0</jna.version>
-        <poi.version>4.1.2</poi.version>
+        <poi.version>4.0.1</poi.version>
         <jfoenix.version>9.0.10</jfoenix.version>
     </properties>
 
 
-    <dependencies>
 
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.opensagres.xdocreport</groupId>
+            <artifactId>fr.opensagres.xdocreport.document.docx</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>fr.opensagres.xdocreport</groupId>
+            <artifactId>fr.opensagres.poi.xwpf.converter.pdf</artifactId>
+            <version>2.0.2</version>
+        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -43,11 +54,9 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
+            <artifactId>poi</artifactId>
             <version>${poi.version}</version>
         </dependency>
         <dependency>
@@ -67,7 +76,9 @@
         </dependency>
     </dependencies>
 
+
     <build>
+
         <plugins>
 
             <plugin>
@@ -103,9 +114,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-
-
 
         </plugins>
 

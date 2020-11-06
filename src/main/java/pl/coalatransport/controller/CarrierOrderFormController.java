@@ -107,22 +107,22 @@ public class CarrierOrderFormController {
     private static Stage stage;
 
 
-    private void generateOrder(){
+    private void generateOrder() {
         orderCreator.generateOrder(cargo, orderDate, orderNumber, lTime, lName, lAddress, lAdditionalInfo,
                 uTime, uName, uAddress, uAdditionalInfo, vPlates, vType, dName, cAddress, cName, cContactPerson,
                 pPrice, pCurrency, pTerm, person, pNumber, pMail);
     }
 
 
-    private void sharpTextArea(){
-        sp = (ScrollPane)cargo.getChildrenUnmodifiable().get(0);
+    private void sharpTextArea() {
+        sp = (ScrollPane) cargo.getChildrenUnmodifiable().get(0);
         for (Node n : sp.getChildrenUnmodifiable()) {
             n.setCache(false);
         }
     }
 
 
-    private void closeStage(){
+    private void closeStage() {
         stage.setOnCloseRequest(windowEvent -> {
             stage.close();
             setStage(null);
@@ -131,35 +131,35 @@ public class CarrierOrderFormController {
 
 
     public Stage getStage() {
-        if(stage==null)
-            {
+        if (stage == null) {
             stage = stageCreator.createNewStage(WINDOW_URL, ICON_URL, WINDOW_TITLE, WINDOW_HEIGHT, WINDOW_WIDTH, IS_RESIZEABLE);
-            }
+        }
 
         return stage;
     }
 
 
-    public void setStage(Stage stage){
+    public void setStage(Stage stage) {
         this.stage = stage;
     }
 
 
-    public boolean stageStatus(){
-        if(stage==null)
+    public boolean stageStatus() {
+        if (stage == null)
             return false;
         else
             return true;
     }
 
 
-    public void initialize(){
+    public void initialize() {
         Platform.runLater(this::sharpTextArea);
         Platform.runLater(this::closeStage);
         textFieldFormatter.formatOrderNumberTextField(orderNumber);
         generateButton.setOnAction(actionEvent -> {
             generateOrder();
             stage.close();
+            setStage(null);
         });
     }
 
