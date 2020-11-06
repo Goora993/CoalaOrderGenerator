@@ -27,17 +27,16 @@ public class OrderCreator {
 
     public OrderCreator(OrderType orderType){
         this.orderType = orderType;
-            try {
+            try(FileInputStream fis = new FileInputStream(orderType.getFileName())) {
                 switch (orderType){
                     case CLIENT:
                     case CARRIER:
-//                        document = new XWPFDocument(new FileInputStream(orderType.getFileName()));
-                        // asses if above is more efficient than the one below
-                        document = new XWPFDocument(OPCPackage.open(orderType.getFileName()));
+                        //Old way to do it: document = new XWPFDocument(OPCPackage.open(orderType.getFileName()));
+                        document = new XWPFDocument(fis);
                         break;
                 }
 
-            } catch (IOException | InvalidFormatException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
     }
